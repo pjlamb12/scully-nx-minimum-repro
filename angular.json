@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "scully-demo": "apps/scully-demo",
+    "scully-demo-e2e": "apps/scully-demo-e2e"
+  }
+}

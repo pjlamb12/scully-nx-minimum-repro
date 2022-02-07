@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/scully-demo",
+  "sourceRoot": "apps/scully-demo/src",
+  "prefix": "scully-demo",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/scully-demo",
+        "index": "apps/scully-demo/src/index.html",
+        "main": "apps/scully-demo/src/main.ts",
+        "polyfills": "apps/scully-demo/src/polyfills.ts",
+        "tsConfig": "apps/scully-demo/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/scully-demo/src/favicon.ico",
+          "apps/scully-demo/src/assets"
+        ],
+        "styles": ["apps/scully-demo/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/scully-demo/src/environments/environment.ts",
+              "with": "apps/scully-demo/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "scully-demo:build:production"
+        },
+        "development": {
+          "browserTarget": "scully-demo:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "scully-demo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/scully-demo/src/**/*.ts",
+          "apps/scully-demo/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/scully-demo"],
+      "options": {
+        "jestConfig": "apps/scully-demo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
