@@ -1,0 +1,10 @@
+identifier: k9zdcez7tcnai2h9
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: scully-demo
+homeFolder: /Users/plamb/testing/nx/scully-demo
+distFolder: /Users/plamb/testing/nx/scully-demo/dist
+outDir: /Users/plamb/testing/nx/scully-demo/dist/static
+handle404: ''
